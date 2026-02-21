@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects · Nicholas Orton</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=DM+Sans:wght@400;500&family=JetBrains+Mono:wght@400&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <style>
+        .page-header {
+            padding: 10rem 0 4rem;
+        }
+
+        .page-header h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            margin-bottom: 0.75rem;
+        }
+
+        .page-header p {
+            color: var(--ink-mid);
+            font-size: 1rem;
+            max-width: 480px;
+        }
+
+        /* Project list */
+        .projects-list {
+            padding-bottom: 6rem;
+        }
+
+        .project-item {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: start;
+            gap: 1.5rem;
+            padding: 2.25rem 0;
+            border-top: 1px solid var(--rule);
+        }
+
+        .project-item:last-child {
+            border-bottom: 1px solid var(--rule);
+        }
+
+        .project-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0.6rem;
+            flex-wrap: wrap;
+        }
+
+        .project-date {
+            font-family: var(--mono);
+            font-size: 0.68rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--ink-soft);
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 0.4rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            font-family: var(--mono);
+            font-size: 0.65rem;
+            letter-spacing: 0.08em;
+            padding: 0.2rem 0.55rem;
+            border: 1px solid var(--rule);
+            border-radius: 2px;
+            color: var(--ink-soft);
+            background: var(--paper);
+        }
+
+        .project-name {
+            font-family: var(--serif);
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: 0.6rem;
+        }
+
+        .project-desc {
+            font-size: 0.93rem;
+            color: var(--ink-mid);
+            line-height: 1.75;
+            max-width: 580px;
+        }
+
+        .project-link {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--ink-soft);
+            font-size: 0.82rem;
+            letter-spacing: 0.04em;
+            white-space: nowrap;
+            transition: color var(--transition);
+            padding-top: 0.25rem;
+        }
+
+        .project-link:hover {
+            color: var(--accent);
+        }
+
+        .project-link svg {
+            width: 15px;
+            height: 15px;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Nav -->
+    <nav>
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">N. Orton</a>
+            <ul class="nav-links">
+                <li><a href="projects.html" class="active">Projects</a></li>
+                <li><a href="experience.html">Experience</a></li>
+            </ul>
+            <div class="nav-icons">
+                <a href="https://github.com/nrrorton" target="_blank" rel="noopener" aria-label="GitHub">
+                    <img src="assets/icons/github.svg" alt="GitHub" width="18" height="18" />
+                </a>
+                <a href="https://www.linkedin.com/in/nicholas-ray-orton" target="_blank" rel="noopener"
+                    aria-label="LinkedIn">
+                    <img src="assets/icons/linkedin.svg" alt="LinkedIn" width="18" height="18" />
+                </a>
+                <a href="mailto:nrrorton@gmail.com" aria-label="Email">
+                    <img src="assets/icons/email.svg" alt="Email" width="18" height="18" />
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="page-header container">
+        <p class="section-label fade-in delay-1">Selected Work</p>
+        <h1 class="fade-in delay-2">Projects</h1>
+        <div class="divider fade-in delay-3"></div>
+        <p class="fade-in delay-3">A collection of projects spanning machine learning, mobile development, and software
+            tooling, each one a step forward in honing my craft.</p>
+    </header>
+
+    <!-- Projects -->
+    <main class="projects-list container">
+
+        <!-- Static Site Generator -->
+        <article class="project-item fade-in delay-1">
+            <div>
+                <div class="project-meta">
+                    <span class="project-date">Dec 2025</span>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                    </div>
+                </div>
+                <h2 class="project-name">Static Site Generator</h2>
+                <p class="project-desc">
+                    A command line tool that transforms Markdown files into fully rendered HTML pages.
+                    Parses headings, paragraphs, inline formatting, and links, producing clean,
+                    deployable static sites from plain text source files. A practical demonstration
+                    of text parsing, file I/O, and templating logic.
+                </p>
+            </div>
+            <a href="https://github.com/nrrorton/static_site_generator" target="_blank" rel="noopener" class="project-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path
+                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                </svg>
+                GitHub
+            </a>
+        </article>
+
+        <!-- Callsign Brewing App -->
+        <article class="project-item fade-in delay-2">
+            <div>
+                <div class="project-meta">
+                    <span class="project-date">Nov 2025</span>
+                    <div class="project-tags">
+                        <span class="tag">Dart</span>
+                        <span class="tag">Flutter</span>
+                    </div>
+                </div>
+                <h2 class="project-name">Callsign Brewing App</h2>
+                <p class="project-desc">
+                    A mobile application built for a small business brewery, providing streamlined
+                    operations management with custom UI components, multi-screen navigation,
+                    and structured data handling. Demonstrates end to end mobile development
+                    from interface design through state management and real world use case delivery.
+                </p>
+            </div>
+            <a href="https://github.com/nrrorton/callsign_brewing_mobile_app" target="_blank" rel="noopener" class="project-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path
+                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                </svg>
+                GitHub
+            </a>
+        </article>
+
+        <!-- Sales Prediction RNN -->
+        <article class="project-item fade-in delay-3">
+            <div>
+                <div class="project-meta">
+                    <span class="project-date">Oct 2025</span>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">TensorFlow</span>
+                    </div>
+                </div>
+                <h2 class="project-name">Sales Prediction RNN</h2>
+                <p class="project-desc">
+                    A Recurrent Neural Network trained to forecast future company order quantities
+                    based on historical sales data. Applies deep learning techniques to a tangible
+                    business problem giving stakeholders a data-driven view of demand trends.
+                    Built in my DSIS-420 class with TensorFlow and structured around a real company dataset.
+                </p>
+            </div>
+            <a href="https://github.com/nrrorton/lstm_rnn_model" target="_blank" rel="noopener" class="project-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path
+                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                </svg>
+                GitHub
+            </a>
+        </article>
+
+        <!-- Asteroid Game -->
+        <article class="project-item fade-in delay-4">
+            <div>
+                <div class="project-meta">
+                    <span class="project-date">Sep 2025</span>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                    </div>
+                </div>
+                <h2 class="project-name">Asteroid Game</h2>
+                <p class="project-desc">
+                    A classic arcade-style Asteroids game built in Python as part of the Boot.dev
+                    curriculum. Covers game loop architecture, collision detection, vector-based
+                    movement, and rendering. Reinforces core programming fundamentals through
+                    a hands on, interactive project.
+                </p>
+            </div>
+            <a href="https://github.com/nrrorton/boot.dev.pygame.project" target="_blank" rel="noopener" class="project-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path
+                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                </svg>
+                GitHub
+            </a>
+        </article>
+
+        <!-- Bookbot -->
+        <article class="project-item fade-in delay-5">
+            <div>
+                <div class="project-meta">
+                    <span class="project-date">May 2025</span>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                    </div>
+                </div>
+                <h2 class="project-name">Bookbot</h2>
+                <p class="project-desc">
+                    A lightweight text analysis tool that ingests a given text file and produces
+                    a detailed report of word count and character frequency. Simple in scope but
+                    clean in execution. An early project that reflects disciplined fundamentals
+                    and an eye for readable, well-structured code.
+                </p>
+            </div>
+            <a href="https://github.com/nrrorton/bookbot" target="_blank" rel="noopener" class="project-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path
+                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                </svg>
+                GitHub
+            </a>
+        </article>
+
+    </main>
+
+    <footer class="container">
+        <p>© 2026 Nicholas Orton · nickorton.dev</p>
+    </footer>
+
+</body>
+
+</html>

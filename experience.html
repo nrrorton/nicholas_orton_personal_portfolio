@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Experience · Nicholas Orton</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=DM+Sans:wght@400;500&family=JetBrains+Mono:wght@400&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <style>
+        .page-header {
+            padding: 10rem 0 3.5rem;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 2rem;
+            flex-wrap: wrap;
+            border-bottom: 1px solid var(--rule);
+            margin-bottom: 0;
+        }
+
+        .page-header h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+        }
+
+        /* Resume body */
+        .resume {
+            padding: 4rem 0 6rem;
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 0 4rem;
+        }
+
+        @media (max-width: 640px) {
+            .resume {
+                grid-template-columns: 1fr;
+            }
+
+            .resume-sidebar {
+                display: none;
+            }
+        }
+
+        /* Sidebar nav (sticky) */
+        .resume-sidebar {
+            position: sticky;
+            top: 5rem;
+            align-self: start;
+        }
+
+        .sidebar-nav {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .sidebar-nav a {
+            font-size: 0.78rem;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            color: var(--ink-soft);
+            transition: color var(--transition);
+        }
+
+        .sidebar-nav a:hover {
+            color: var(--accent);
+        }
+
+        /* Resume sections */
+        .resume-main section {
+            padding: 3rem 0;
+            border-top: 1px solid var(--rule);
+        }
+
+        .resume-main section:first-child {
+            padding-top: 0;
+            border-top: none;
+        }
+
+        .resume-section-title {
+            font-family: var(--mono);
+            font-size: 0.68rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--ink-soft);
+            margin-bottom: 1.75rem;
+        }
+
+        /* Summary */
+        .summary-text {
+            font-size: 0.97rem;
+            color: var(--ink-mid);
+            line-height: 1.85;
+            max-width: 560px;
+        }
+
+        /* Experience entries */
+        .entry {
+            margin-bottom: 2.5rem;
+        }
+
+        .entry:last-child {
+            margin-bottom: 0;
+        }
+
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 0.25rem;
+        }
+
+        .entry-role {
+            font-family: var(--serif);
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--ink);
+        }
+
+        .entry-date {
+            font-family: var(--mono);
+            font-size: 0.68rem;
+            letter-spacing: 0.1em;
+            color: var(--ink-soft);
+            white-space: nowrap;
+        }
+
+        .entry-org {
+            font-size: 0.88rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .entry-bullets {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.55rem;
+        }
+
+        .entry-bullets li {
+            font-size: 0.92rem;
+            color: var(--ink-mid);
+            line-height: 1.7;
+            padding-left: 1.25rem;
+            position: relative;
+        }
+
+        .entry-bullets li::before {
+            content: '—';
+            position: absolute;
+            left: 0;
+            color: var(--rule);
+            font-size: 0.85rem;
+        }
+
+        /* Education */
+        .edu-degree {
+            font-family: var(--serif);
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+
+        .edu-school {
+            font-size: 0.88rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .edu-honors {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.45rem;
+        }
+
+        .edu-honors li {
+            font-size: 0.9rem;
+            color: var(--ink-mid);
+            padding-left: 1.25rem;
+            position: relative;
+        }
+
+        .edu-honors li::before {
+            content: '—';
+            position: absolute;
+            left: 0;
+            color: var(--rule);
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .skill-row {
+            display: grid;
+            grid-template-columns: 110px 1fr;
+            gap: 1rem;
+            align-items: start;
+        }
+
+        .skill-category {
+            font-family: var(--mono);
+            font-size: 0.65rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--ink-soft);
+            padding-top: 0.1rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .skill-tag {
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            padding: 0.25rem 0.6rem;
+            border: 1px solid var(--rule);
+            border-radius: 2px;
+            color: var(--ink-mid);
+            background: var(--paper);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Nav -->
+    <nav>
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">N. Orton</a>
+            <ul class="nav-links">
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="experience.html" class="active">Experience</a></li>
+            </ul>
+            <div class="nav-icons">
+                <a href="https://github.com/nrrorton" target="_blank" rel="noopener" aria-label="GitHub">
+                    <img src="assets/icons/github.svg" alt="GitHub" width="18" height="18" />
+                </a>
+                <a href="https://www.linkedin.com/in/nicholas-ray-orton" target="_blank" rel="noopener"
+                    aria-label="LinkedIn">
+                    <img src="assets/icons/linkedin.svg" alt="LinkedIn" width="18" height="18" />
+                </a>
+                <a href="mailto:nrrorton@gmail.com" aria-label="Email">
+                    <img src="assets/icons/email.svg" alt="Email" width="18" height="18" />
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="page-header container">
+        <div>
+            <p class="section-label fade-in delay-1">Background</p>
+            <h1 class="fade-in delay-2">Experience</h1>
+        </div>
+        <a href="assets/files/Nicholas_Orton_Resume.pdf" download class="btn btn-primary fade-in delay-3">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            Download Resume
+        </a>
+    </header>
+
+    <!-- Resume -->
+    <div class="resume container">
+
+        <!-- Sidebar -->
+        <aside class="resume-sidebar fade-in delay-2">
+            <ul class="sidebar-nav">
+                <li><a href="#summary">Summary</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main content -->
+        <div class="resume-main">
+
+            <!-- Summary -->
+            <section id="summary" class="fade-in delay-2">
+                <p class="resume-section-title">Summary</p>
+                <p class="summary-text">
+                    Passionately driven Computer Science and Mathematics student with experience in Python development,
+                    data processing, and backend web applications. Applied analytical thinking to real-world projects
+                    including CRM data classification and structured problem solving in company datasets. Customer
+                    interaction professional with escalation management experience, combining technical aptitude with
+                    strong communication skills to improve operational efficiency.
+                </p>
+            </section>
+
+            <!-- Experience -->
+            <section id="experience" class="fade-in delay-3">
+                <p class="resume-section-title">Experience</p>
+
+                <div class="entry">
+                    <div class="entry-header">
+                        <span class="entry-role">Data Science Intern</span>
+                        <span class="entry-date">Apr 2025 – Jun 2025</span>
+                    </div>
+                    <p class="entry-org">Rooted Ag · Fort Scott, KS</p>
+                    <ul class="entry-bullets">
+                        <li>Built scalable Python/Pandas scripts to clean and format contact datasets, standardizing and
+                            restructuring the Pipedrive CRM database to improve usability and drive sales through
+                            targeted email campaigns.</li>
+                        <li>Developed classification logic and automated labeling rules for contact categorization,
+                            supporting efficient customer follow-up processes and improving retention efforts.</li>
+                    </ul>
+                </div>
+
+                <div class="entry">
+                    <div class="entry-header">
+                        <span class="entry-role">Customer Advocate Specialist</span>
+                        <span class="entry-date">May 2023 – Feb 2025</span>
+                    </div>
+                    <p class="entry-org">Backyard Discovery · Pittsburg, KS</p>
+                    <ul class="entry-bullets">
+                        <li>Provided support across calls, chats, and email, gaining valuable insight into user
+                            expectations and needs.</li>
+                        <li>Resolved customer escalations through empathetic communication, reducing managerial
+                            intervention and improving the overall customer experience.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Education -->
+            <section id="education" class="fade-in delay-4">
+                <p class="resume-section-title">Education</p>
+                <div class="entry-header" style="margin-bottom: 0.25rem;">
+                    <span class="edu-degree">B.S. Computer Science</span>
+                    <span class="entry-date">Expected Dec 2026</span>
+                </div>
+                <p class="edu-school">Pittsburg State University · Pittsburg, KS</p>
+                <ul class="edu-honors">
+                    <li>Honoree of All A Scholastics — Sep 2023 to Present</li>
+                    <li>Computer Science Club President — Sep 2025 to Present</li>
+                    <li>Professional Development: Udemy Git &amp; GitHub Course — Dec 2025</li>
+                </ul>
+            </section>
+
+            <!-- Skills -->
+            <section id="skills" class="fade-in delay-5">
+                <p class="resume-section-title">Skills</p>
+                <div class="skills-grid">
+                    <div class="skill-row">
+                        <span class="skill-category">Languages</span>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Java</span>
+                            <span class="skill-tag">C</span>
+                            <span class="skill-tag">SQL</span>
+                            <span class="skill-tag">Dart</span>
+                            <span class="skill-tag">HTML</span>
+                            <span class="skill-tag">CSS</span>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <span class="skill-category">Frameworks</span>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Flutter</span>
+                            <span class="skill-tag">Flask</span>
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">TensorFlow</span>
+                            <span class="skill-tag">Pandas</span>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <span class="skill-category">Tools</span>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">GitHub</span>
+                            <span class="skill-tag">Pipedrive CRM</span>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <span class="skill-category">Concepts</span>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Machine Learning</span>
+                            <span class="skill-tag">Data Cleaning</span>
+                            <span class="skill-tag">REST APIs</span>
+                            <span class="skill-tag">OOP</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <footer class="container">
+        <p>© 2026 Nicholas Orton · nickorton.dev</p>
+    </footer>
+
+</body>
+
+</html>

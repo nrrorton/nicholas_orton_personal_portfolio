@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nicholas Orton</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=DM+Sans:wght@400;500&family=JetBrains+Mono:wght@400&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <style>
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 5rem;
+        }
+
+        .hero-inner {
+            max-width: var(--max);
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .hero-eyebrow {
+            font-family: var(--mono);
+            font-size: 0.72rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--ink-soft);
+            margin-bottom: 1.25rem;
+        }
+
+        .hero-name {
+            font-family: var(--serif);
+            font-size: clamp(3.5rem, 8vw, 6.5rem);
+            font-weight: 600;
+            line-height: 1.0;
+            letter-spacing: -0.02em;
+            color: var(--ink);
+            margin-bottom: 0.25rem;
+        }
+
+        .hero-title {
+            font-family: var(--serif);
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            font-weight: 400;
+            color: var(--ink-soft);
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-rule {
+            width: 48px;
+            height: 1px;
+            background: var(--rule);
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-bio {
+            max-width: 520px;
+            font-size: 1rem;
+            color: var(--ink-mid);
+            line-height: 1.8;
+            margin-bottom: 3rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Nav -->
+    <nav>
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">N. Orton</a>
+            <ul class="nav-links">
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="experience.html">Experience</a></li>
+            </ul>
+            <div class="nav-icons">
+                <!-- GitHub -->
+                <a href="https://github.com/nrrorton" target="_blank" rel="noopener" aria-label="GitHub">
+                    <img src="assets/icons/github.svg" alt="GitHub" width="18" height="18" />
+                </a>
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/in/nicholas-ray-orton" target="_blank" rel="noopener"
+                    aria-label="LinkedIn">
+                    <img src="assets/icons/linkedin.svg" alt="LinkedIn" width="18" height="18" />
+                </a>
+                <!-- Email -->
+                <a href="mailto:nrrorton@gmail.com" aria-label="Email">
+                    <img src="assets/icons/email.svg" alt="Email" width="18" height="18" />
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-inner">
+            <p class="hero-eyebrow fade-in delay-1">Computer Science &amp; Mathematics · Pittsburg State University</p>
+            <h1 class="hero-name fade-in delay-2">Nicholas<br>Orton</h1>
+            <p class="hero-title fade-in delay-3">Software Engineer in Training</p>
+            <div class="hero-rule fade-in delay-3"></div>
+            <p class="hero-bio fade-in delay-4">
+                Passionately pursuing a Computer Science degree with an anticipated graduation in December 2026.
+                Striving to be an engineer in the software industry with an ever expanding skillset to match those needs.
+                Focused and determined to be an architect that helps shape and build a prosperous tomorrow.
+            </p>
+            <div class="hero-actions fade-in delay-5">
+                <a href="projects.html" class="btn btn-primary">Projects</a>
+                <a href="experience.html" class="btn btn-outline">Experience</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Nicholas Orton · nickorton.dev</p>
+    </footer>
+
+</body>
+
+</html>
