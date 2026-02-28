@@ -259,6 +259,34 @@
                     <img src="assets/icons/email.svg" alt="Email" width="18" height="18" />
                 </a>
             </div>
+            <!-- Hamburger toggle (mobile only) -->
+            <button class="nav-toggle" aria-label="Toggle menu" onclick="
+          this.classList.toggle('open');
+          document.getElementById('nav-drawer').classList.toggle('open');
+        ">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <!-- Mobile drawer -->
+        <div class="nav-drawer" id="nav-drawer">
+            <ul class="nav-links">
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="experience.html" class="active">Experience</a></li>
+            </ul>
+            <div class="nav-icons">
+                <a href="https://github.com/nrrorton" target="_blank" rel="noopener" aria-label="GitHub">
+                    <img src="assets/icons/github.svg" alt="GitHub" width="18" height="18" />
+                </a>
+                <a href="https://www.linkedin.com/in/nicholas-ray-orton" target="_blank" rel="noopener"
+                    aria-label="LinkedIn">
+                    <img src="assets/icons/linkedin.svg" alt="LinkedIn" width="18" height="18" />
+                </a>
+                <a href="mailto:nrrorton@gmail.com" aria-label="Email">
+                    <img src="assets/icons/email.svg" alt="Email" width="18" height="18" />
+                </a>
+            </div>
         </div>
     </nav>
 

@@ -60,7 +60,13 @@ a:hover {
 .container {
     max-width: var(--max);
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 1.25rem;
+}
+
+@media (min-width: 600px) {
+    .container {
+        padding: 0 2rem;
+    }
 }
 
 /* ── Nav ──────────────────────────────────────────────── */
@@ -70,7 +76,7 @@ nav {
     left: 0;
     right: 0;
     z-index: 100;
-    background: rgba(245, 242, 238, 0.92);
+    background: rgba(245, 242, 238, 0.96);
     backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--rule);
 }
@@ -78,10 +84,17 @@ nav {
 .nav-inner {
     max-width: var(--max);
     margin: 0 auto;
-    padding: 1rem 2rem;
+    padding: 1rem 1.25rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 1rem;
+}
+
+@media (min-width: 600px) {
+    .nav-inner {
+        padding: 1rem 2rem;
+    }
 }
 
 .nav-logo {
@@ -90,12 +103,14 @@ nav {
     font-weight: 600;
     color: var(--ink);
     letter-spacing: 0.01em;
+    flex-shrink: 0;
 }
 
 .nav-logo:hover {
     color: var(--accent);
 }
 
+/* Desktop nav links + icons */
 .nav-links {
     display: flex;
     align-items: center;
@@ -123,6 +138,7 @@ nav {
     display: flex;
     align-items: center;
     gap: 1rem;
+    flex-shrink: 0;
 }
 
 .nav-icons a {
@@ -136,9 +152,92 @@ nav {
     color: var(--accent);
 }
 
+.nav-icons img,
 .nav-icons svg {
     width: 18px;
     height: 18px;
+}
+
+/* Hamburger button — hidden on desktop */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    flex-shrink: 0;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background: var(--ink);
+    transition: all 0.25s ease;
+    transform-origin: center;
+}
+
+/* Animate hamburger → X when open */
+.nav-toggle.open span:nth-child(1) {
+    transform: translateY(6.5px) rotate(45deg);
+}
+
+.nav-toggle.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.open span:nth-child(3) {
+    transform: translateY(-6.5px) rotate(-45deg);
+}
+
+/* Mobile drawer */
+.nav-drawer {
+    display: none;
+    flex-direction: column;
+    background: rgba(245, 242, 238, 0.98);
+    border-top: 1px solid var(--rule);
+    padding: 0.5rem 1.25rem 1.25rem;
+}
+
+.nav-drawer.open {
+    display: flex;
+}
+
+.nav-drawer .nav-links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+}
+
+.nav-drawer .nav-links li {
+    width: 100%;
+    border-bottom: 1px solid var(--rule);
+}
+
+.nav-drawer .nav-links a {
+    display: block;
+    padding: 0.75rem 0;
+    font-size: 0.9rem;
+}
+
+.nav-drawer .nav-icons {
+    margin-top: 1rem;
+    gap: 1.25rem;
+}
+
+/* Switch to mobile layout below 560px */
+@media (max-width: 560px) {
+    .nav-toggle {
+        display: flex;
+    }
+
+    .nav-inner .nav-links,
+    .nav-inner .nav-icons {
+        display: none;
+    }
 }
 
 /* ── Buttons ──────────────────────────────────────────── */
@@ -146,7 +245,7 @@ nav {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.75rem 1.75rem;
+    padding: 0.75rem 1.5rem;
     font-family: var(--sans);
     font-size: 0.85rem;
     font-weight: 500;
