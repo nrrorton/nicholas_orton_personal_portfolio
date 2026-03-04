@@ -206,6 +206,16 @@ nav {
     display: flex;
 }
 
+@media (min-width: 561px) {
+    .nav-drawer {
+        display: none !important;
+    }
+
+    .nav-toggle {
+        display: none !important;
+    }
+}
+
 .nav-drawer .nav-links {
     flex-direction: column;
     align-items: flex-start;
